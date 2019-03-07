@@ -6,7 +6,7 @@ The knife in the hands of Salome. Killed John, her lover.
 > This is library about the some common utils code by frist-fist-group
 
 - First of all
-  You should make sure that you have node envirnment.
+  You should make sure that you have node environment.
   - for code
     > Typescript
   - for test
@@ -19,11 +19,13 @@ The knife in the hands of Salome. Killed John, her lover.
 
 - About the src
   - base
-    > Some basic class for use e.g. Observer etc.
+    Some basic class for use e.g. Observer etc.
   - browser
-    > Some class only can use in Browser environment
+    Some class only can use in Browser environment
   - util
-    > Some basic util class for both use e.g. Mirror etc.
+    Some basic util class for both use e.g. Mirror etc.
+- How to build
+  
+  Use the gloabl webpack command
 
-
-> You can contact me with the emial `frank994wu@gmail.com`
+> You can contact me with the email `frank994wu@gmail.com`

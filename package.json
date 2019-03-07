@@ -1,19 +1,21 @@
 {
-  "name": "sbrc-fe-utils",
+  "name": "slm-utils",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/index.js",
+  "main": "build/index.js",
   "scripts": {
     "test": "mocha",
-    "start": "node lib/index.js"
+    "start": "node build/index.js",
+    "build": "webpack --config webpack.config.js"
   },
   "directories": {
     "test": "test"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
-  "dependencies": {
-    "mocha": "^6.0.2"
+  "devDependencies": {
+    "mocha": "^6.0.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
   }
 }
