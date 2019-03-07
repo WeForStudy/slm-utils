@@ -1,0 +1,19 @@
+{
+  "name": "sbrc-fe-utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node lib/index.js"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "mocha": "^6.0.2"
+  }
+}
