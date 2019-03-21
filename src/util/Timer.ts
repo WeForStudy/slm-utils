@@ -1,6 +1,7 @@
 import { Mirror } from './index';
 import { Observer } from '../base';
 export class Timer extends Observer {
+  public ticked: boolean;
   protected duration: number;
   protected callback: Function;
   private timer: number; // record the id of timer
@@ -19,6 +20,7 @@ export class Timer extends Observer {
       this.callback();
     }
     this.tock();
+    this.ticked = true;
   }
 
   public tick(): void { 
