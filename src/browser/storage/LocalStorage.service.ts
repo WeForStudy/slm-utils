@@ -6,7 +6,7 @@ export class LocalStorageService extends BaseStorage {
   /**
    * @description privalize the constructor in case multiple instance
    */
-  private constructor(){
+  private constructor() {
     super(window.localStorage);
   }
 

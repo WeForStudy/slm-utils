@@ -1,8 +1,9 @@
-import { Mirror, Util } from '../../util';
+import { Mirror } from '../../util';
 
 export class BaseStorage {
   private instance = null;
-  constructor (storage: any) {
+
+  protected constructor (storage: any) {
     this.instance = storage;
   }
 
