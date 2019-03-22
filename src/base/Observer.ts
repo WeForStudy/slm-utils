@@ -5,8 +5,11 @@ export class Observer {
     this.handlers = [];
   }
 
-  // if you find one already exist in handlers, then return the index and the item
-  _find(name) {
+  /**
+   * @description find the handle exist in handlers, return it;
+   * @param {String} name the handlers name
+   */
+  private _find(name: string): any {
     let obj = {};
     const flag = this.handlers.some((handler, index) => {
       if (handler.name === name) {
@@ -22,8 +25,13 @@ export class Observer {
     return obj;
   }
 
-  // add listener here
-  on(name, handler, _once = false) {
+  /**
+   * @description add the hanlder to the handlers
+   * @param name 
+   * @param {Function} handler the handler will be call
+   * @param {Function} _once 
+   */
+  protected on(name, handler, _once: Boolean = false): void {
     const obj: any = this._find(name);
     if (!obj) {
       this.handlers.push({
@@ -41,13 +49,21 @@ export class Observer {
     }
   }
 
-  // here add an listener only could be emit once
-  once(name, handler) {
+  /**
+   * @description add only can call once handler into handlers
+   * @param {String} name the name of hanlder 
+   * @param {Function} handler the callback 
+   */
+  protected once(name, handler): void {
     this.on(name, handler, true);
   }
 
-  // emit hanlder here
-  emit(name, params = {}) {
+  /**
+   * @description emit the handler to observer
+   * @param {String} name the name of handler
+   * @param {Any} params it can be any type
+   */
+  protected emit(name: string, params?: any): void {
     const obj: any = this._find(name);
     if (obj) {
       const { item: _item } = obj;
@@ -65,8 +81,10 @@ export class Observer {
     }
   }
 
-  // clear all the handlers
-  removeAll() {
+  /**
+   * @description clear all the handlers
+   */
+  protected clear() {
     this.handlers = [];
   }
 
