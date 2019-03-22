@@ -20,6 +20,10 @@ describe('Util test', () => {
       const objA = '13212312321';
       assert.equal(Validator.getInstance().formatCnPhone(objA), true);
     });
+    it('should be true when values format normal Emial address', () => {
+      const objA = 'trest@xxx.com';
+      assert.equal(Validator.getInstance().formatEmail(objA), true);
+    });
     it('should be false when values not only include EN Char', () => {
       const objA = 'asd12';
       assert.equal(Validator.getInstance().formatCnPhone(objA), false);

@@ -1,3 +1,4 @@
+
 export class ValidatorUtil {
 
   private static instance = null;
@@ -11,7 +12,7 @@ export class ValidatorUtil {
   /**
    * @description get the instance of Validator
    */
-  public static getInstance() {
+  public static getInstance(): ValidatorUtil {
     if (!this.instance) {
       this.instance = new ValidatorUtil();
     }
@@ -33,7 +34,18 @@ export class ValidatorUtil {
    * @returns {Boolean} the result
    */
   private formatUrl(str: string): boolean {
-    const reg = /(https|http):\/\//g;
+    const reg = /^(https|http):\/\//g;
+    return this.regTest(reg, str);
+  }
+
+  
+  /**
+   * @description check string whether is a email url or not
+   * @param {String} str the string will be checked later
+   * @returns {Boolean} the result
+   */
+  private formatEmail(str: string): boolean {
+    const reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/g;
     return this.regTest(reg, str);
   }
 
@@ -62,7 +74,7 @@ export class ValidatorUtil {
    * @param {String} str the string will be checked later
    * @returns {Boolean} the result
    */
-  private includeNumber(str: any) {
+  private includeNumber(str: any): boolean {
     return this.regTest(/[0-9]/g, str);
   }
 
@@ -71,7 +83,7 @@ export class ValidatorUtil {
    * @param {String} str the string will be checked later
    * @returns {Boolean} the result
    */
-  private onlyNumber(str: any) {
+  private onlyNumber(str: any): boolean {
     return !this.regTest(/[^0-9]/g, str);
   }
 
