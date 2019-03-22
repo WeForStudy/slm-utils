@@ -1,7 +1,7 @@
-const utls = require('../lib');
+const slmUtils = require('../lib');
 const assert = require('assert');
 
-const { Mirror } = utls;
+const { Mirror } = slmUtils;
 
 describe('Util test', () => {
   describe('Mirror check', () => {

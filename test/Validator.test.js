@@ -1,7 +1,7 @@
-const utls = require('../lib');
+const slmUtils = require('../lib');
 const assert = require('assert');
 
-const { Validator } = utls;
+const { Validator } = slmUtils;
 describe('Util test', () => {
   describe('Validator check', () => {
     it('should be true when value include number (includeNumber)', () => {
