@@ -13,7 +13,7 @@ export class Timer extends Observer {
     super();
     const { duration, type } = opts;
     if (Mirror.isUndefined(duration)) {
-      throw new Error('Timer must initialized with a duration and a callback function!');
+      throw new Error('Timer must initialized with a duration');
     }
     if (!Mirror.isUndefined(type)) {
       const keys = Object.keys(TIMER_TYPE);

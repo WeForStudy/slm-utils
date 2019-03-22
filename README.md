@@ -3,17 +3,16 @@ The knife in the hands of Salome. Killed John, her lover.
 
 
 #### Introduction
-> This is library about the some common utils code by frist-fist-group
+> This is library about the some common utils code by Wu
 
 - First of all
   You should make sure that you have node environment.
-  - for code
+  - for develop
     > Typescript
   - for test
     > mocha
 
 - How to test
-  - `npm install mocha`
   - `npm run test`
   All of the test code will be settled in test dictionary
 
@@ -21,11 +20,11 @@ The knife in the hands of Salome. Killed John, her lover.
   - base
     Some basic class for use e.g. Observer etc.
   - browser
-    Some class only can use in Browser environment
+    Some class can only use in Browser environment
   - util
     Some basic util class for both use e.g. Mirror etc.
 - How to build
   
-  Use the gloabl webpack command
+  Use the gloabl webpack command or `npm run build`
 
 > You can contact me with the email `frank994wu@gmail.com`

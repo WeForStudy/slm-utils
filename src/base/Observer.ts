@@ -31,7 +31,7 @@ export class Observer {
    * @param {Function} handler the handler will be call
    * @param {Function} _once 
    */
-  protected on(name, handler, _once: Boolean = false): void {
+  protected on(name: string, handler: Function, _once: Boolean = false): void {
     const obj: any = this._find(name);
     if (!obj) {
       this.handlers.push({

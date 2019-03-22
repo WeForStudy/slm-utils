@@ -1,4 +1,4 @@
-const slmUtils = require('../lib');
+const slmUtils = require('../build');
 const assert = require('assert');
 
 const { Validator } = slmUtils;

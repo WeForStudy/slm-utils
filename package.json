@@ -1,17 +1,16 @@
 {
   "name": "slm-utils",
   "version": "1.0.2",
-  "description": "",
+  "description": "A util library by Frank wu",
   "main": "build/index.js",
   "scripts": {
     "test": "mocha",
-    "start": "node build/index.js",
     "build": "webpack --config webpack.config.js"
   },
   "directories": {
     "test": "test"
   },
-  "author": "",
+  "author": "Frank Wu",
   "license": "ISC",
   "devDependencies": {
     "mocha": "^6.0.2",
