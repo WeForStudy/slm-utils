@@ -21,22 +21,32 @@ export class ValidatorUtil {
   }
 
   /**
-   * @description check string whether is a url or not
-   * @param {String} str the string will be checked later
-   * @returns {Boolean} the result
-   */
-  private isUrl(str: string): boolean {
-    const reg = /(https|http):\/\//;
-    return this.regTest(reg, str);
-  }
-
-  /**
    * @description inside method will be use in every method
    * @param {String} str the string will be checked later
    * @returns {Boolean} the result
    */
   private regTest(reg: RegExp, str: any): boolean {
     return reg.test(str);
+  }
+
+  /**
+   * @description check string whether is a url or not
+   * @param {String} str the string will be checked later
+   * @returns {Boolean} the result
+   */
+  private formatUrl(str: string): boolean {
+    const reg = /(https|http):\/\//g;
+    return this.regTest(reg, str);
+  }
+
+  /**
+   * @description check string whether is a url or not
+   * @param {String} str the string will be checked later
+   * @returns {Boolean} the result
+   */
+  private formatCnPhone(str: string): boolean {
+    const reg = /^1(3|4|5|6|7|8|9)\d{9}$/g;
+    return this.regTest(reg, str);
   }
 
   /**
@@ -54,8 +64,17 @@ export class ValidatorUtil {
    * @param {String} str the string will be checked later
    * @returns {Boolean} the result
    */
-  private includeNumber(num: any) {
-    return Mirror.isNumber(num) && isNaN(num);
+  private includeNumber(str: any) {
+    return this.regTest(/[0-9]/g, str);
+  }
+
+  /**
+   * @description check string whether is only include number or not
+   * @param {String} str the string will be checked later
+   * @returns {Boolean} the result
+   */
+  private onlyNumber(str: any) {
+    return !this.regTest(/[^0-9]/g, str);
   }
 
   /**
@@ -64,7 +83,7 @@ export class ValidatorUtil {
    * @returns {Boolean} the result
    */
   private includeBlank(str: any): boolean {
-    return this.regTest(/^\s+|\s+$/g, str);
+    return this.regTest(/\s+|\s+$/g, str);
   }
 
   /**
@@ -75,6 +94,7 @@ export class ValidatorUtil {
   private includeSpecialChar(str: string): boolean {
     const regEn = /[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/im,
     regCn = /[·！#￥（——）：；“”‘、，|《。》？、【】[\]]/im;
+    if (this.includeBlank(str)) return true;
     if (this.regTest(regEn, str)) return true;
     return this.regTest(regCn, str);
   }

@@ -3,7 +3,7 @@ node_modules/
 yarn.lock
 package-lock.json
 *.log
-
+lib/
 
 # Editor directories and files
 .idea
