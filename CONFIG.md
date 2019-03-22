@@ -1,0 +1,7 @@
+- first
+  - run `tsc` to complier the typescript code to es-script
+- second
+  - run `npm run build` to build the publish lib
+- check the build dictionary exist or not
+- change the version add the last number e.g `1.0.0` ==> `1.0.1`
+- run `npm publish`, done.

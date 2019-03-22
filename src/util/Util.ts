@@ -1,4 +1,4 @@
-import { MirrorCheck } from './MirrorCheck';
+import { Mirror } from './Mirror';
 
 export class Util {
   /**
@@ -7,7 +7,7 @@ export class Util {
    * @param {Object} nextObj higher priority
    */
   static merge(previous, nextObj) {
-    if (!MirrorCheck.isObject(previous) || !MirrorCheck.isObject(nextObj)) {
+    if (!Mirror.isObject(previous) || !Mirror.isObject(nextObj)) {
       throw new Error('Parameters must be two Object!');
     }
     return {

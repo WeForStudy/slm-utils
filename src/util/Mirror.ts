@@ -1,4 +1,4 @@
-export class MirrorCheck {
+export class Mirror {
   /**
    * @description Return the tyoe of parameter
    * @param {*} obj A parameter maybe any type
