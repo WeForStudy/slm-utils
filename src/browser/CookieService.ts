@@ -1,4 +1,4 @@
-import { Mirror } from '../util/Mirror';
+import { Mirror } from '../util';
 
 export class CookieService {
   /**

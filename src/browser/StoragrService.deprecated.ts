@@ -1,5 +1,5 @@
-import { Util } from '../util/Util';
-import { Mirror } from '../util/Mirror';
+import { Util } from '../util';
+import { Mirror } from '../util';
 
 export class StoragrService {
   private storage: object;
