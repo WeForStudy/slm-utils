@@ -13,7 +13,7 @@ The knife in the hands of Salome. Killed John, her lover.
     > mocha
 
 - How to test
-  - `npm run test`
+  - `npm run build` then `npm run test`
   All of the test code will be settled in test dictionary
 
 - About the src
