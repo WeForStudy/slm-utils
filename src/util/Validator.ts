@@ -1,5 +1,3 @@
-import { Mirror } from './Mirror';
-
 export class ValidatorUtil {
 
   private static instance = null;

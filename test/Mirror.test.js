@@ -1,6 +1,6 @@
 const slmUtils = require('../lib');
 const assert = require('assert');
-
+console.log(slmUtils);
 const { Mirror } = slmUtils;
 
 describe('Util test', () => {

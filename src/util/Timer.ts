@@ -1,6 +1,6 @@
-import { Mirror } from './index';
-import { TIMER_TYPE } from '../_contants';
-import { Observer } from '../base';
+import { Mirror } from './Mirror';
+import { TIMER_TYPE } from '../_contants/timer';
+import { Observer } from '../base/Observer';
 export class Timer extends Observer {
   public ticked: boolean;
   private timer: number; // record the id of timer
