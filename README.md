@@ -5,6 +5,8 @@ The knife in the hands of Salome. Killed John, her lover.
 #### Introduction
 > This is library about the some common utils code by Wu
 
+`npm install sml-utils`
+
 - First of all
   You should make sure that you have node environment.
   - for develop
