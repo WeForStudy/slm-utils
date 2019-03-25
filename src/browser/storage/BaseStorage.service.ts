@@ -73,7 +73,7 @@ export class BaseStorage {
    * @description remove all the value that storaged in storage
    * @returns {boolean}, which determine whether execute success or not
    */
-  protected clearStorage() {
+  protected clear() {
     this.instance.clear();
     return true;
   }
