@@ -16,7 +16,7 @@ export class BaseStorage {
   protected get(key: string, type?: string): any {
     let _val = this.instance.getItem(key);
     // if type is not a json, return the original value
-    if (type && type.toLocaleUpperCase() !== 'OBJECT') {
+    if (type && type.toUpperCase() !== 'OBJECT') {
       return _val;
     }
     try {

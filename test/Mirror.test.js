@@ -1,6 +1,5 @@
 const slmUtils = require('../build');
 const assert = require('assert');
-console.log(slmUtils);
 const { Mirror } = slmUtils;
 
 describe('Util test', () => {
