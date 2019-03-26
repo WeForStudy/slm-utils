@@ -10,12 +10,12 @@ module.exports = {
       {
         test: /\.ts?$/,
         use: 'ts-loader',
-        exclude: /node_modules/
+        exclude: /node_modules|*.test.js/
       }
     ]
   },
   resolve: {
-    extensions: [ '.ts', '.js' ]
+    extensions: ['.ts']
   },
   output: {
     path: path.resolve(__dirname, 'build'),

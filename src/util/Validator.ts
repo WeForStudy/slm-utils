@@ -83,7 +83,7 @@ export class ValidatorUtil {
    * @param {String} str the string will be checked later
    * @returns {Boolean} the result
    */
-  private onlyNumber(str: any): boolean {
+  private onlyIncludeNumber(str: any): boolean {
     return !this.regTest(/[^0-9]/g, str);
   }
 
