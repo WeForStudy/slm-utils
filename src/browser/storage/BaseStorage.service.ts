@@ -1,4 +1,4 @@
-import { Mirror } from '../../util';
+import { Mirror } from '../../util/Mirror';
 
 export class BaseStorage {
   private instance = null;
@@ -13,12 +13,17 @@ export class BaseStorage {
    * @param {string} type optional, the type of the value
    * @returns {any} can return any type
    */
-  protected get(key: string, type?: string): any {
+  public get(key: string, type?: string): any {
     let _val = this.instance.getItem(key);
-    // if type is not a json, return the original value
-    if (Mirror.isString(type) && type.toUpperCase() !== 'OBJECT') {
-      return _val;
+    try {
+      // if type is not a json, return the original value
+      if (Mirror.isString(type) && type.toUpperCase() !== 'OBJECT') {
+        return _val;
+      }
+    } catch(e) {
+      throw new Error(`type must be String, but got ${Mirror.getType(type)}`);
     }
+
     try {
       // parse the val
       _val = JSON.parse(_val);
@@ -32,7 +37,7 @@ export class BaseStorage {
    * @param {any} value required, the value
    * @returns {boolean}, which determine whether execute success or not
    */
-  protected set(key: string, value: any): boolean {
+  public set(key: string, value: any): boolean {
     try {
       const _val = Mirror.isObject(value) ? JSON.stringify(value) : value;
       this.instance.setItem(key, _val);
@@ -47,7 +52,7 @@ export class BaseStorage {
    * @param {string} key required, the key of the value
    * @returns {boolean}, which determine whether exist or not
    */
-  protected check(key: string): boolean {
+  public check(key: string): boolean {
     if (!key) {
       throw new Error('Must have a key to check object exist!');
     }
@@ -63,8 +68,8 @@ export class BaseStorage {
    * @param {string} key required, the key of the value
    * @returns {boolean}, which determine whether execute success or not
    */
-  protected remove(key: string): boolean {
-    this.instance.remove(key);
+  public remove(key: string): boolean {
+    this.instance.removeItem(key);
     return true;
   }
 
@@ -73,7 +78,7 @@ export class BaseStorage {
    * @description remove all the value that storaged in storage
    * @returns {boolean}, which determine whether execute success or not
    */
-  protected clear() {
+  public clear() {
     this.instance.clear();
     return true;
   }
