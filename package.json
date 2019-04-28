@@ -10,7 +10,10 @@
   "directories": {
     "test": "test"
   },
-  "keywords": ["salome", "utils"],
+  "keywords": [
+    "salome",
+    "utils"
+  ],
   "author": "Frank Wu",
   "license": "ISC",
   "devDependencies": {

@@ -1,5 +1,6 @@
 const slmUtils = require('../build');
 const assert = require('assert');
+console.log(slmUtils);
 const { Mirror } = slmUtils;
 
 describe('Util test', () => {
@@ -69,6 +70,14 @@ describe('Util test', () => {
     it('Should be false when value is not a number (isNumber)', () => {
       const val = 'a';
       assert.equal(Mirror.isNumber(val), false);
+    });
+    it('Should be true when value is null object (isNullObject)', () => {
+      const val = {};
+      assert.equal(Mirror.isNullObject(val), true);
+    });
+    it('Should be false when value is not a null object (isNullObject)', () => {
+      const val = { name: 'a' };
+      assert.equal(Mirror.isNullObject(val), false);
     });
     // #need to solve
     // it('Should be true when value is file (isFile)', () => {

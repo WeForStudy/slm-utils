@@ -76,4 +76,14 @@ export class Mirror {
   static isFunction(obj) {
     return this.getType(obj) === 'Function';
   }
+  /**
+   * @description Return ture if typeof obj is null-obj, otherwise return false
+   * @param {*} obj A parameter maybe any type
+   */
+  static isNullObject(obj) {
+    if (!this.isObject(obj)) return false;
+    if (JSON.stringify(obj) === '{}') return true;
+    if (Object.keys(obj).length === 0 ) return true;
+    return false;
+  }
 }
