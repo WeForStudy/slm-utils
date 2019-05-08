@@ -17,7 +17,7 @@ export class CookieService {
    * @param {*} expires cookie expires time, unit is minute
    * @return the operation set right or wrong
    */
-  set({ key, value }, opts) {
+  set(key, value, opts) {
     const validKey: string[] = [
       'expires',
       'domain',
@@ -43,7 +43,7 @@ export class CookieService {
           if (key === 'expires') {
             const d = new Date();
             d.setTime(d.getTime() + (val * 60 * 1000));
-            val = d.toDateString();
+            val = d.toUTCString();
           }
           // return the combo str key=value
           return `${key}=${val}`;
@@ -51,12 +51,13 @@ export class CookieService {
         return null;
       }).filter(item => !!item);// to filter the null
       // to add an additional semi
-      const suffix = suffixArr.length > 0 ? `;${suffixArr.join(';')}` : '';
+      const suffix = suffixArr.length > 0 ? `; ${suffixArr.join('; ')};` : '';
       // encode the value in case of special character
+      // console.log(`The cookie value is: ${key}=${encodeURIComponent(_val)}${suffix}`);
       document.cookie = `${key}=${encodeURIComponent(_val)}${suffix}`;
       return true;
     } catch (err) {
-      console.log(`occured error when set cookie: ${key}`);
+      console.log(`occured error when set cookie: ${key} at CookieService.js 59`);
       return false;
     }
   }
@@ -76,7 +77,6 @@ export class CookieService {
     // let expires;
     cookieArray.some(item => {
       const each = item.trim();
-      // console.log(`each is:${each}, cname is:${name}, index is: ${each.indexOf(name)}`);
       if (each.indexOf(name) === 0) {
         // decode the value, filter the speical character
         findOne = decodeURIComponent(each.substring(name.length, each.length));
@@ -102,8 +102,8 @@ export class CookieService {
   remove(key) {
     const isExist = this.check(key);
     if (isExist) {
-      this.set({ key: name, value: ''}, {
-        expires: -60,
+      this.set(name, '', {
+        expires: -1,
       });
     }
     return true;

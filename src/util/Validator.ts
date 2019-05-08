@@ -84,7 +84,7 @@ export class ValidatorUtil {
    * @returns {Boolean} the result
    */
   private onlyIncludeNumber(str: any): boolean {
-    return !this.regTest(/[^0-9]/g, str);
+    return !this.regTest(/[^0-9]$/g, str);
   }
 
   /**
@@ -124,10 +124,19 @@ export class ValidatorUtil {
    * @returns {Boolean} the result
    */
   private includeSpecCharAndExcludeSimpleChar(str: string): boolean {
-    const regEn = /[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/im,
+    const regEn = /[`~!@#$%^&*()_+<>?:"{}.\/;'[\]]/im,
     regCn = /[·！#￥（——）|《》【】[\]]/im; // exclude , 、“”‘’ 。 ？；：
     if (this.regTest(regEn, str)) return true;
     return this.regTest(regCn, str);
+  }
+
+  /**
+   * @description check string whether start with number or not
+   * @param {String} str the string will be checked later
+   * @returns {Boolean} the result
+   */
+  private isStartWithNumber(str: string): boolean {
+    return this.regTest(/^\d/gi, str);
   }
 
 }
