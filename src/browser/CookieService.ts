@@ -19,13 +19,15 @@ export class CookieService {
    */
   set(key, value, opts) {
     const validKey: string[] = [
-      'expires',
-      'domain',
       'path',
+      'domain',
+      'maxAge',
+      'expires',
     ];
     const initOpts = {
       // path: '/',
-      expires: 5,
+      // expires: 5,
+      maxAge: 300, // default is 5 minutes
       // domain: window.location.hostname,
       ...opts,
     };
@@ -43,7 +45,10 @@ export class CookieService {
           if (key === 'expires') {
             const d = new Date();
             d.setTime(d.getTime() + (val * 60 * 1000));
-            val = d.toUTCString();
+            val = d.toString();
+          }
+          if (key === 'maxAge') {
+            return `max-age=${val}`;
           }
           // return the combo str key=value
           return `${key}=${val}`;
@@ -53,7 +58,7 @@ export class CookieService {
       // to add an additional semi
       const suffix = suffixArr.length > 0 ? `; ${suffixArr.join('; ')};` : '';
       // encode the value in case of special character
-      // console.log(`The cookie value is: ${key}=${encodeURIComponent(_val)}${suffix}`);
+      // console.log(`value is: ${key}=${encodeURIComponent(_val)}${suffix}`);
       document.cookie = `${key}=${encodeURIComponent(_val)}${suffix}`;
       return true;
     } catch (err) {
